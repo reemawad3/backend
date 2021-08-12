@@ -26,8 +26,8 @@ print "hello: ".$_SESSION['username'];
 </tr
 <tr>
 <td class="td3">Child Gender:</td>
-<td><input type="radio" name="gender" id="gender" value="male"> Male
-  <input type="radio" name="gender" id="gender" value="female"> Female</td>
+<td><input type="radio" name="gender" id="gender" value="m"> Male
+  <input type="radio" name="gender" id="gender" value="f"> Female</td>
 </tr>
 <tr>
 <td class="td3">Child DOB:</td>

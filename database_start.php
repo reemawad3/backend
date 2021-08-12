@@ -1,14 +1,14 @@
 <?php
 session_start();
 include "connection.php";
-
-if (isset($_POST["add"]))
-{
-	$childid = $_POST["childid"];
+$childid = $_POST["childid"];
 	$firstname = $_POST["firstname"];
 	$lastname = $_POST["lastname"];
 	$gender=$_POST["gender"];
     $dob=$_POST["childDOB"];
+
+if (isset($_POST["add"]))
+{
 	$sql = "insert into child values('$childid','$firstname','$lastname','$gender','$dob')";
 	$stmt = $conn->query($sql);//Execute the sql query
 	header("location:childcare.php?message=This child has been added successfully");
@@ -28,14 +28,9 @@ if (isset($_POST["delete"]))
 else
 if (isset($_POST["update"]))
 {
-	$childid = $_POST["childid"];
-	$firstname = $_POST["firstname"];
-	$lastname = $_POST["lastname"];
-	$gender = $_POST["gender"];
-	$dob=$_POST["childDOB"];
 	
-	$sql = "update child set firstname = '$firstname', lastname='$lastname', gender= $gender, childDOB='$dob'
-	where childid = $childid";
+	$sql = "update child set firstname = '$firstname', lastname='$lastname', gender= '$gender', childDOB='$dob'
+	where childid = '$childid'";
 	
 	$stmt = $conn->query($sql);//Execute the sql query
 	header("location:childcare.php?message=child informations has been updated successfully");
@@ -93,7 +88,7 @@ if (isset($_POST["viewall"]))
 else 
 if (isset($_POST["search"]))
 {
-	$childid = $_POST["childid"];
+
 	$sql = "select * from child where childid='$chilid'";
 	$stmt = $conn->query($sql);//Execute the sql query
 	if ($stmt->rowCount() > 0)
